@@ -1,0 +1,4 @@
+#!/bin/sh
+export TERMINFO=/mnt/disc1/UTILITIES/terminfo
+/mnt/disc1/UTILITIES/nano $1
+

@@ -1,0 +1,5 @@
+For Telegram bot creation and generation self-signed certificate see instructions in 
+https://core.telegram.org/bots/api
+https://core.telegram.org/bots/self-signed
+
+Your certificate keyfile should be copied into this directory as cacert.pem.
