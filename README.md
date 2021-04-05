@@ -24,7 +24,7 @@ It is easy to unpack the downloaded Yoosee firmware package and add a few lines 
 echo "** Start telnetd"
 /usr/sbin/telnetd
 ```
-However, to flash a modified firmware into your device will be impossible: the package needs to be signed. Fortunately the [Firmware packing tools](https://github.com/zzerrg/gmfwtools) by @zzerrg are here to help. The unpacking/packing process is described there in detail.
+However, to flash a modified firmware into your device will be impossible: the package needs to be signed. Fortunately the [Firmware packing tools](https://github.com/zzerrg/gmfwtools) by @zzerrg are here to help. The unpacking/packing process is described there in detail. The latest firmware version successfully repacked by the author with the described methods is 13.01.00.98.
 
 A repacked firmware will be copied to the SD card root as `npcupg.bin`. The Yoosee mobile app will indicate the update available, and after updating the doorbell can be accessed via telnet using the doorbell's IP and user `root` without password.
 
@@ -126,27 +126,25 @@ Log analyzing makes possible adding more functions, it is limited only by your i
 
 
 ## Cross-compile binaries for arm5l
-To use binaries working on an exotic target architecture such as `HiSilicon hi3518ev200 arm5l` you need to cross-compile those binaries using an appropriate toolchain and configuring [buildroot](http://nightly.buildroot.org/manual.html#_buildroot_quick_start). Detailed instructions can be found elsewhere. Useful here may be info about some compilation flags to set and the use of proper compiler, as `arm-buildroot-linux-uclibcgnueabi-gcc`:
+This project includes some cross-compiled binaries suitable for the use with the compatible hardware. In case you want to customize the devices with a different CPU type, you need to set up your own toolchain.
+
+To create binaries working on an exotic target architectures such as `HiSilicon hi3518ev200 arm5l` you need to cross-compile those binaries using an appropriate toolchain and configuring [buildroot](http://nightly.buildroot.org/manual.html#_buildroot_quick_start). Detailed instructions can be found elsewhere. As a side note, for the target `HiSilicon hi3518ev200 arm5l` the compiler `arm-buildroot-linux-uclibcgnueabi-gcc` was used with the following compilation flags:
 
 ```
 CFLAGS=-Wall --static -O2
 CFLAGS+=-march=armv5te -mcpu=arm926ej-s -mtune=arm926ej-s -msoft-float -mfloat-abi=soft
 ```
 
-To cross-compile binaries, needed for this project, the following libraries should be cross-compiled first.
+To create binaries, needed for this project, the following libraries should be cross-compiled first.
 * [OpenSSL](https://github.com/openssl/openssl)
 * [Zlib](https://www.zlib.net/)
 
 
-Finally we may cross-compile missing binaries using some instructions:
+Finally, some instructions on the required binaries:
 * [busybox](https://www.busybox.net/)
 * [reredirect](https://github.com/jerome-pouiller/reredirect/)
 * [curl](http://www.matteomattei.com/how-to-cross-compile-curl-library-with-ssl-and-zlib-support/)
 * [mosquitto_pub](https://github.com/eclipse/mosquitto)
-
-
-Here cross-compiled binaries are provided which maybe useful for those, who has a compatible hardware.
-
 
 
 ## Credits
