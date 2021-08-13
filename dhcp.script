@@ -36,16 +36,18 @@ case "$1" in
 			echo nameserver $i >> $RESOLV_CONF
 		done
 
-		echo "** Start telnetd"
-		/usr/sbin/telnetd
-#		echo "** Disable WLAN"
-#		/sbin/ifconfig wlan0 down
+#		echo "** Start telnetd"
+#		/usr/sbin/telnetd
+		echo "** Disable WLAN"
+		/sbin/ifconfig wlan0 down
 #		echo "** Start ftpd"
 #		/mnt/disc1/busybox tcpsvd -vE 0.0.0.0 21 ftpd -w /
-		echo "** Start monitoring"
-		/mnt/disc1/MONITORING/parse_push &
-		echo "** Start Cron"
-		/mnt/disc1/busybox crond -L /mnt/disc1/CRON/cron.log -l 0 -c /mnt/disc1/CRON/
+#		echo "** Start monitoring"
+#		/mnt/disc1/MONITORING/parse_push &
+#		echo "** Start Cron"
+#		/mnt/disc1/busybox crond -L /mnt/disc1/CRON/cron.log -l 0 -c /mnt/disc1/CRON/
+		echo "** Set time" 
+		/bin/sh /mnt/disc1/set_time.sh
 		;;
 esac
 
