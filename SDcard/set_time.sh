@@ -32,6 +32,6 @@ TIMEZONE='EST-5EDT-4,M3.2.0/02:00:00,M11.1.0/02:00:00'     # Eastern
 		TZ=$TIMEZONE
 		export TZ
 		date -s "$T"
-		/mnt/disc1/busybox sleep 21600
+		/mnt/disc1/busybox sleep 10800
 		unset TZ
 	done
