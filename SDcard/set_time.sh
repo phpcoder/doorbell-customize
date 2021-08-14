@@ -9,11 +9,18 @@
 ##     \/     \/  /_____/             \/     \/ ##
 ##==============================================##
 
+## Script Name: set_time.sh
+## Decription: Sets system time using user defined 
+##             NTP server & timezone string.
+
 ##################################################
 ## NTP Server IP        # Edit your server IP here
 TIME_SERVER=192.168.10.1
+#=================================================
+
 ##################################################
 ## TimeZone Offset      # Uncomment your timezone
+#=================================================
 TIMEZONE='EST-5EDT-4,M3.2.0/02:00:00,M11.1.0/02:00:00'     # Eastern
 #TIMEZONE='CST-6CDT-5,M3.2.0/02:00:00,M11.1.0/02:00:00'     # Central
 #TIMEZONE='MST-7MDT-6,M3.2.0/02:00:00,M11.1.0/02:00:00'     # Mountian
