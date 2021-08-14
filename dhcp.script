@@ -64,7 +64,8 @@ case "$1" in
 #		/mnt/disc1/busybox crond -L /mnt/disc1/CRON/cron.log -l 0 -c /mnt/disc1/CRON/
 		
 		echo "** Setting time"
-		bin/sh /mnt/disc1/set_time
+		bin/sh /mnt/disc1/set_time.sh
+		
 		;;
 esac
 
