@@ -53,7 +53,7 @@ FDATE=`date -d @${TS} +'%Y-%m-%d %H:%M:%S'`
 /mnt/disc1/MONITORING/curl -s \
   --form-string "token=${APP_TOKEN}" \
   --form-string "user=${USER_KEY}" \
-  --form-string "message=Doorbell ring !!! ${LATEST} - Created at ${FDATE}" \
+  --form-string "message=Doorbell Push Detected ${FDATE}" \
   -F "attachment=@${FILE}" \
   http://api.pushover.net/1/messages.json >/dev/null 2>&1
   
