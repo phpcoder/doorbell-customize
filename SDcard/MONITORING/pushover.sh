@@ -15,13 +15,13 @@
 ##             should be enabled in the doorbell.
 
 ##################################################################
-## User Key        					# Edit your User Key here.
+## User Key         # Edit your User Key here.
 #================================================================#
 USER_KEY="ueveujttxfakeuserkeyieg7777"
 #==================================================
 
 ##################################################################
-## APP Token      					# Edit your App Token here.
+## APP Token        # Edit your App Token here.
 #================================================================#
 APP_TOKEN="ak9gb9hdqfakeapptokena3oy7777"
 #================================================================#
