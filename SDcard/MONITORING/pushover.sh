@@ -35,7 +35,7 @@ DIR=`date +%Y-%m-%d`
 PTH="/mnt/disc1/npc/push/alarm"
 
 # Wait until snapshot is taken
-#/mnt/disc1/busybox sleep 5
+/mnt/disc1/busybox sleep 5
 
 # Find latest image in the current date folder
 LATEST=`ls -t ${PTH}/${DIR} | /mnt/disc1/busybox head -1`
@@ -50,12 +50,12 @@ TS=`/mnt/disc1/busybox stat -c %Y ${FILE}`
 FDATE=`date -d @${TS} +'%Y-%m-%d %H:%M:%S'`
 
 # Send latest image
-/mnt/disc1/MONITORING/curl -s \
-  --form-string "token=${APP_TOKEN}" \
-  --form-string "user=${USER_KEY}" \
-  --form-string "message=Doorbell Push Detected ${FDATE}" \
-  -F "attachment=@${FILE}" \
-  http://api.pushover.net/1/messages.json >/dev/null 2>&1
+/mnt/disc1/MONITORING/curl -sk \
+    --form-string "token=${APP_TOKEN}" \
+    --form-string "user=${USER_KEY}" \
+    --form-string "message=Doorbell Push Detected ${FDATE}" \
+    -F "attachment=@${FILE}" \
+    https://api.pushover.net/1/messages.json >/dev/null 2>&1
   
    
 exit 0
