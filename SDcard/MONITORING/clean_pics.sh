@@ -1,11 +1,11 @@
 #!/bin/sh
 
-#==================================================
-## Script Name:	clean_pics.sh
-## Decription: 	Deletes directory containing 
-##				      the previous days images.
+#===================================================
+## Script Name:		clean_pics.sh
+## Decription: 		Deletes directory containing 
+##			the previous days images.
 ## Instructions:	Run as cron job 55 23 * * *
-#==================================================
+#===================================================
 
 # Yesterdays date - such dir should be created for alarm pics
 DIR=`date -d "-13:00" '+%Y-%m-%d'`
