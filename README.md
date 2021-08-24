@@ -23,7 +23,7 @@ Patched Firmware 13.01.01.31 based on 13.01.01.30
 
 Instructions to install:
 Download the [Firmware](https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip) and unzip.
-Go to file SDcard and copy contents ie: (CRON, MONITORING, UTILITIES, busybox, nano, npcupg.bin, set_time.sh, and weget) on root of (empty) SD card
+Go to file SDcard and copy contents ie: (CRON, MONITORING, UTILITIES, busybox, nano, npcupg.bin and wget) on root of (empty) SD card
 Insert SD card into slot on Doorbell
 Open YooSee App -> Settings -> Firmware and select install. This will install the local firmware from SD.
 
