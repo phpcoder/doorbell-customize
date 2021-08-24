@@ -22,10 +22,10 @@ Patched Firmware 13.01.01.31 based on 13.01.01.30
 * Stays up&running > 3 days, even when disconnected from WAN
 
 Instructions to install:
-Download the [doorbell-customize-main.zip](https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip) and unzip.
-Go to file SDcard and copy contents ie: (CRON, MONITORING, UTILITIES, busybox, nano, npcupg.bin and wget) on root of (empty) SD card
-Insert SD card into slot on Doorbell
-Open YooSee App -> Settings -> Firmware and select install. This will install the local firmware from SD.
+1. Download the [doorbell-customize-main.zip](https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip) and unzip.
+2. Go to file SDcard and copy contents ie: (CRON, MONITORING, UTILITIES, busybox, nano, npcupg.bin and wget) on root of (empty) SD card
+3. Insert SD card into slot on Doorbell
+4. Open YooSee App -> Settings -> Firmware and select install. This will install the local firmware from SD.
 
 
 ## Alternitive: Add telnet and repacking stock firmware yourself
