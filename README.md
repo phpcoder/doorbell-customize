@@ -4,7 +4,7 @@ This project describes some ideas on customizaiton of Smart Video Doorbells (HiS
 * sending messages to a Telegram bot with attached images e.g. on ring button push
 * sending PushOver notifactions with attached image on button press
 * adds busybox with extended command set
-* adds cron jobs e.g. to reboot the device on schedule or clean up fie directorys.
+* adds cron jobs e.g. to reboot the device on schedule or clean up file directorys.
 
 Additionally, for extra security it is possible 
 * to disable Wifi daemon if the doorbell uses wired network connection,
