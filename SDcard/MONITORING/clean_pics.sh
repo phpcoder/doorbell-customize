@@ -7,7 +7,7 @@
 ## Instructions:	Run as cron job 55 23 * * *
 #===================================================
 
-# Yesterdays date - such dir should be created for alarm pics
+# Yesterdays Date - Name of dir containing the previous days images
 DIR=`date -d "-13:00" '+%Y-%m-%d'`
 
 # Alarm picture storage
