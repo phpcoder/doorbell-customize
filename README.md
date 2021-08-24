@@ -15,8 +15,20 @@ Such solution is not covered by the current version of the project.
 ## Compatible devices
 There are many video doorbell devices and IP cameras available from various makers with similar hardware. Many of them are designed to be compatible with firmware from a few major firmware makers, notably Gwelltimes or Yoosee. This project covers doorbell devices with firmware named as 13.xx.xx.xx with HiSilicon hi3518ev200 SoC onboard. Compatibility with other devices is not tested.
 
+## Installing modified firmware
+Patched Firmware 13.01.01.31 based on 13.01.01.30:
+Has Telnet enabled
+Has FPS fix, steady on 15fps
+Stays up&running > 3 days, even when disconnected from WAN
 
-## Adding telnet and repacking stock firmware
+Instructions to install:
+Download the [Zip_File] (https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip) and unzip.
+Go to file SDcard and copy contents ie: (CRON, MONITORING, UTILITIES, busybox, nano, npcupg.bin, set_time.sh, and weget) on root of (empty) SD card
+Insert SD card into slot on Doorbell
+Open YooSee App -> Settings -> Firmware and select install. This will install the local firmware from SD.
+
+
+## Alternitive: Add telnet and repacking stock firmware yourself
 Customization described in this project requires an access to the divice Linux CLI. By default the device firmware disables external telnet access. To enable it, it is necessary to get to the doorbell's PCB and have an extra UART TTL device attached to proper pads which then connects to the device Linux console. PCBs from different makers may vary in UART pin location. However, it maybe possible to enable telnet without opening the case. It requires flashing a custom firmware with a telnet daemon running.
 
 It is easy to unpack the downloaded Yoosee firmware package and add a few lines of code into `/npc/dhcp.script` to start a telnet daemon at boot time:
@@ -115,7 +127,8 @@ Please note optional lines for starting FTP daemon and disabling wlan. Given exa
 
 4. Modify the example scripts to include your own data:
 	* `MONITORING/send_bell_mqtt` - fill in your MQTT broker's IP/Port number and modify topic/message
-	* `MONITORING/send_pic_telegram` - fill in your Telegram bot info: `BOT ID:BOT TOKEN` and `CHAT ID`. To be able using image attachment it is necessary to allow taking snapshots by the alarm option in the doorbell's mobile app settings.
+	* `MONITORING/send_pic_telegram` - fill in your Telegram bot info: `BOT ID:BOT TOKEN` and `CHAT ID`. To be able use image attachment, taking snapshots on button press by the alarm option has already been enabled in the repacked firmware.
+	* 'MONITORING/pushover.sh' - edit `USER_KEY` and `APP_TOKEN` with your user key and app token.
 
 
 ## How it works
