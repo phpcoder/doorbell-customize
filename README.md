@@ -111,7 +111,10 @@ echo "** Start Cron"
 ```
 Please note optional lines for starting FTP daemon and disabling wlan. Given example code can be run at any time e.g. via telnet to start ftpd and transfer files to/from SD card. A modified [dhcp.script](dhcp.script) is provided.
 
-2. Copy files in [SDcard](SDcard/) to your SD card root. Add executable permission to scrpts and binaries. Following is a short description of the provided files.
+2. Copy files in [SDcard](SDcard/) to your SD card root if you havent already by downloaded the zipfile. 
+3. Add xecutable permission to scrpts and binaries by `find /mnt/disc1/MONITORING/ -type f -iname "*.sh" -exec chmod +x {} \;`
+
+Following is a short description of the provided files.
 	* [MONITORING](SDcard/MONITORING) Contains binaries and scripts for monitoring ring button keypress, MQTT message publishing and Telegram bot messaging.
 	* [UTILITIES](SDcard/UTILITIES) Contains TERMINFO for terminal support and some useful binaries.
 	* [CRON](SDcard/CRON) Contains files to support cron jobs.
