@@ -131,7 +131,8 @@ Following is a short description of the provided files.
 4. Modify the example scripts to include your own data:
 	* `MONITORING/send_bell_mqtt.sh` - fill in your MQTT broker's IP/Port number and modify topic/message
 	* `MONITORING/send_pic_telegram.sh` - fill in your Telegram bot info: `BOT ID:BOT TOKEN` and `CHAT ID`. To be able use image attachment, taking snapshots on button press by the alarm option has already been enabled in the repacked firmware.
-	* `MONITORING/pushover.sh` - edit `USER_KEY` and `APP_TOKEN` with your user key and app token.
+	* `MONITORING/pushover.sh` - edit the `USER_KEY` and `APP_TOKEN` variable with your user key and app token.
+	* `MONITORING/set_time.sh` - uncomment your time zone and edit the `TIME_SERVER` variable with your time server IP address. (note to self: need to edit and add something about time zones ahead of UTC0)
 
 
 ## How it works
