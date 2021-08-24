@@ -111,7 +111,7 @@ echo "** Start Cron"
 ```
 Please note optional lines for starting FTP daemon and disabling wlan. Given example code can be run at any time e.g. via telnet to start ftpd and transfer files to/from SD card. A modified [dhcp.script](dhcp.script) is provided.
 
-2. Copy files in [SDcard](SDcard/) to your SD card root if you havent already by downloaded the zipfile. 
+2. Copy files in [SDcard](SDcard/) to your SD card root if you havent already in the earlier option by downloaded the [doorbell-customize-main.zip](https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip). 
 3. Add excutable permission to scrpts and binaries by running the command: `find /mnt/disc1/ -type f -iname -exec chmod +x {} \;`
 
 Following is a short description of the provided files.
