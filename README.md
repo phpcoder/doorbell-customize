@@ -16,13 +16,13 @@ Such solution is not covered by the current version of the project.
 There are many video doorbell devices and IP cameras available from various makers with similar hardware. Many of them are designed to be compatible with firmware from a few major firmware makers, notably Gwelltimes or Yoosee. This project covers doorbell devices with firmware named as 13.xx.xx.xx with HiSilicon hi3518ev200 SoC onboard. Compatibility with other devices is not tested.
 
 ## Installing modified firmware
-Patched Firmware 13.01.01.31 based on 13.01.01.30:
-Has Telnet enabled
-Has FPS fix, steady on 15fps
-Stays up&running > 3 days, even when disconnected from WAN
+Patched Firmware 13.01.01.31 based on 13.01.01.30
+* Has Telnet enabled
+* Has FPS fix, steady on 15fps
+* Stays up&running > 3 days, even when disconnected from WAN
 
 Instructions to install:
-Download the [Zip_File] (https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip) and unzip.
+Download the [Firmware](https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip) and unzip.
 Go to file SDcard and copy contents ie: (CRON, MONITORING, UTILITIES, busybox, nano, npcupg.bin, set_time.sh, and weget) on root of (empty) SD card
 Insert SD card into slot on Doorbell
 Open YooSee App -> Settings -> Firmware and select install. This will install the local firmware from SD.
