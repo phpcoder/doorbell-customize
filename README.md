@@ -115,9 +115,9 @@ Please note optional lines for starting FTP daemon and disabling wlan. Given exa
 3. Add excutable permission to scrpts and binaries by running the command: `find /mnt/disc1/ -type f -iname -exec chmod +x {} \;`
 
 Following is a short description of the provided files.
-	* [MONITORING](SDcard/MONITORING) Contains binaries and scripts for monitoring ring button keypress, MQTT message publishing and Telegram bot messaging.
-	* [UTILITIES](SDcard/UTILITIES) Contains TERMINFO for terminal support and some useful binaries.
-	* [CRON](SDcard/CRON) Contains files to support cron jobs.
+* [MONITORING](SDcard/MONITORING) Contains binaries and scripts for monitoring ring button keypress, MQTT message publishing and Telegram bot messaging.
+* [UTILITIES](SDcard/UTILITIES) Contains TERMINFO for terminal support and some useful binaries.
+* [CRON](SDcard/CRON) Contains files to support cron jobs.
 
 3. Using the included busybox binary create a named pipe and modify file ownership and permission. This will complete writable partition modifications.
 
@@ -129,9 +129,9 @@ Following is a short description of the provided files.
 ```
 
 4. Modify the example scripts to include your own data:
-	* `MONITORING/send_bell_mqtt` - fill in your MQTT broker's IP/Port number and modify topic/message
-	* `MONITORING/send_pic_telegram` - fill in your Telegram bot info: `BOT ID:BOT TOKEN` and `CHAT ID`. To be able use image attachment, taking snapshots on button press by the alarm option has already been enabled in the repacked firmware.
-	* 'MONITORING/pushover.sh' - edit `USER_KEY` and `APP_TOKEN` with your user key and app token.
+	* `MONITORING/send_bell_mqtt.sh` - fill in your MQTT broker's IP/Port number and modify topic/message
+	* `MONITORING/send_pic_telegram.sh` - fill in your Telegram bot info: `BOT ID:BOT TOKEN` and `CHAT ID`. To be able use image attachment, taking snapshots on button press by the alarm option has already been enabled in the repacked firmware.
+	* `MONITORING/pushover.sh` - edit `USER_KEY` and `APP_TOKEN` with your user key and app token.
 
 
 ## How it works
