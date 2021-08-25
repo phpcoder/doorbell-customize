@@ -4,7 +4,7 @@ This project describes some ideas on customizaiton of Smart Video Doorbells (HiS
 * sending messages to a Telegram bot with attached images e.g. on ring button push
 * sending PushOver notifactions with attached image on button press
 * adds busybox with extended command set
-* adds cron jobs e.g. to reboot the device on schedule or clean up file directorys.
+* adds cron jobs e.g. to reboot the device on schedule or clean up file directories.
 
 Additionally, for extra security it is possible 
 * to disable Wifi daemon if the doorbell uses wired network connection,
@@ -14,6 +14,7 @@ Such solution is not covered by the current version of the project.
 
 ## Compatible devices
 There are many video doorbell devices and IP cameras available from various makers with similar hardware. Many of them are designed to be compatible with firmware from a few major firmware makers, notably Gwelltimes or Yoosee. This project covers doorbell devices with firmware named as 13.xx.xx.xx with HiSilicon hi3518ev200 SoC onboard. Compatibility with other devices is not tested.
+
 
 ## Installing modified firmware
 Patched Firmware 13.01.01.31 based on 13.01.01.30
