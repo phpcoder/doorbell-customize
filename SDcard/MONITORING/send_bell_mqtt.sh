@@ -11,6 +11,8 @@
 
 
 #Publish MQTT
+# Sends an Image over MQTT on button press of the SD-M5 Doorbell.
+# Edit fields for Username and Password and change local IP address & port to point at your MQTT Broker
 
 # Today's date - such dir should be created for alarm pics
 DIR=`date +%Y-%m-%d`
