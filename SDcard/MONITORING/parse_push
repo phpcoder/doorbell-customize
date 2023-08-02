@@ -19,8 +19,8 @@ else
 		if /mnt/disc1/busybox grep -q "keyup" /npc/myfifo
 		then
 				echo "Button is pushed"
-				/mnt/disc1/MONITORING/send_bell_mqtt
-				/mnt/disc1/MONITORING/send_pic_telegram
+				/mnt/disc1/MONITORING/send_bell_mqtt.sh
+				/mnt/disc1/MONITORING/pushover.sh
 		fi
 		/mnt/disc1/busybox sleep 2
 	done

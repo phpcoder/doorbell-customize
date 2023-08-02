@@ -1,9 +1,10 @@
 # Customize HiSilicon Linux based Video Doorbells
 This project describes some ideas on customizaiton of Smart Video Doorbells (HiSilicon hi3518ev200 SoC) compatible with Yoosee type of firmware. The method adds new functionality to stock devices:
 * sending messages to a MQTT broker, e.g. on ring button push
-* sending messages to a Telegram bot with attached images e.g. on ring button push 
+* sending messages to a Telegram bot with attached images e.g. on ring button push
+* sending PushOver notifactions with attached image on button press
 * adds busybox with extended command set
-* adds cron jobs e.g. to reboot the device on schedule
+* adds cron jobs e.g. to reboot the device on schedule or clean up file directories.
 
 Additionally, for extra security it is possible 
 * to disable Wifi daemon if the doorbell uses wired network connection,
@@ -15,7 +16,20 @@ Such solution is not covered by the current version of the project.
 There are many video doorbell devices and IP cameras available from various makers with similar hardware. Many of them are designed to be compatible with firmware from a few major firmware makers, notably Gwelltimes or Yoosee. This project covers doorbell devices with firmware named as 13.xx.xx.xx with HiSilicon hi3518ev200 SoC onboard. Compatibility with other devices is not tested.
 
 
-## Adding telnet and repacking stock firmware
+## Installing modified firmware
+Patched Firmware 13.01.01.31 based on 13.01.01.30
+* Has Telnet enabled
+* Has FPS fix, steady on 15fps
+* Stays up&running > 3 days, even when disconnected from WAN
+
+Instructions to install:
+1. Download the [doorbell-customize-main.zip](https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip) and unzip.
+2. Go to file SDcard and copy contents ie: (CRON, MONITORING, UTILITIES, busybox, nano, npcupg.bin and wget) on root of (empty) SD card
+3. Insert SD card into slot on Doorbell
+4. Open YooSee App -> Settings -> Firmware and select install. This will install the local firmware from SD.
+
+
+## Alternitive: Add telnet and repacking stock firmware yourself
 Customization described in this project requires an access to the divice Linux CLI. By default the device firmware disables external telnet access. To enable it, it is necessary to get to the doorbell's PCB and have an extra UART TTL device attached to proper pads which then connects to the device Linux console. PCBs from different makers may vary in UART pin location. However, it maybe possible to enable telnet without opening the case. It requires flashing a custom firmware with a telnet daemon running.
 
 It is easy to unpack the downloaded Yoosee firmware package and add a few lines of code into `/npc/dhcp.script` to start a telnet daemon at boot time:
@@ -98,10 +112,13 @@ echo "** Start Cron"
 ```
 Please note optional lines for starting FTP daemon and disabling wlan. Given example code can be run at any time e.g. via telnet to start ftpd and transfer files to/from SD card. A modified [dhcp.script](dhcp.script) is provided.
 
-2. Copy files in [SDcard](SDcard/) to your SD card root. Add executable permission to scrpts and binaries. Following is a short description of the provided files.
-	* [MONITORING](SDcard/MONITORING) Contains binaries and scripts for monitoring ring button keypress, MQTT message publishing and Telegram bot messaging.
-	* [UTILITIES](SDcard/UTILITIES) Contains TERMINFO for terminal support and some useful binaries.
-	* [CRON](SDcard/CRON) Contains files to support cron jobs.
+2. Copy files in [SDcard](SDcard/) to your SD card root if you havent already done so by placing them on the SD Card by chosing the privously mentioned option to downloaded the [doorbell-customize-main.zip](https://github.com/cmdwhoami/doorbell-customize/archive/refs/heads/main.zip). 
+3. Add excutable permission to scrpts and binaries by running the command: `find /mnt/disc1/ -type f -iname -exec chmod +x {} \+`
+
+Following is a short description of the provided files.
+* [MONITORING](SDcard/MONITORING) Contains binaries and scripts for monitoring ring button keypress, MQTT message publishing and Telegram bot messaging.
+* [UTILITIES](SDcard/UTILITIES) Contains TERMINFO for terminal support and some useful binaries.
+* [CRON](SDcard/CRON) Contains files to support cron jobs.
 
 3. Using the included busybox binary create a named pipe and modify file ownership and permission. This will complete writable partition modifications.
 
@@ -113,8 +130,10 @@ Please note optional lines for starting FTP daemon and disabling wlan. Given exa
 ```
 
 4. Modify the example scripts to include your own data:
-	* `MONITORING/send_bell_mqtt` - fill in your MQTT broker's IP/Port number and modify topic/message
-	* `MONITORING/send_pic_telegram` - fill in your Telegram bot info: `BOT ID:BOT TOKEN` and `CHAT ID`. To be able using image attachment it is necessary to allow taking snapshots by the alarm option in the doorbell's mobile app settings.
+	* `MONITORING/send_bell_mqtt.sh` - fill in your MQTT broker's IP/Port number and modify topic/message
+	* `MONITORING/send_pic_telegram.sh` - fill in your Telegram bot info: `BOT ID:BOT TOKEN` and `CHAT ID`. To be able use image attachment, taking snapshots on button press by the alarm option has already been enabled in the repacked firmware.
+	* `MONITORING/pushover.sh` - edit the `USER_KEY` and `APP_TOKEN` variable with your user key and app token.
+	* `MONITORING/set_time.sh` - uncomment your time zone and edit the `TIME_SERVER` variable with your time server IP address. (note to self: need to edit and add something about time zones ahead of UTC0)
 
 
 ## How it works

@@ -8,4 +8,8 @@
 # *  *  *  *  *  <command to be executed>
 
 # reboot every hour
-  15 *  *  *  *  reboot
+# * 1 * * * reboot
+
+# clean alarm dir daily
+  55 23 * * * /bin/sh /mnt/disc1/MONITORING/clean_pics.sh 
+  40 23 * * * /bin/sh /mnt/disc1/MONITORING/clean_pics.sh
